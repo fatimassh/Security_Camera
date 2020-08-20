@@ -4,14 +4,14 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 
-email = "moon_shine_44@hotmail.com"
-password = "$ub7anAllah00"
+email = "your email"
+password = "your password"
 
 def send_email():
     msg = MIMEMultipart()
     msg['subject'] = 'Webcam Alert!'
 
-    body = "Fatima, there are someone trying to use your laptop!"
+    body = "There are someone trying to use your laptop!"
     msg.attach(MIMEText(body, 'plain'))
 
     filename = 'saved_img.jpg'
@@ -24,7 +24,7 @@ def send_email():
 
     msg.attach(part)
     text = msg.as_string()
-    server = smtplib.SMTP('smtp.office365.com', 587)
+    server = smtplib.SMTP('smtp.office365.com', 587) #if gmail, change to smtp.gmail.com
     server.starttls()
     server.login(email, password)
 

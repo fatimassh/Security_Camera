@@ -12,12 +12,12 @@ def capture():
 video_capture = cv2.VideoCapture(0)
 
 #load the image from its path, analyze it.
-fatima_image = face_recognition.load_image_file("/Users/fo6em/Desktop/securityCamera/known-ppl/Fatima.png")
-fatima_encoding = face_recognition.face_encodings(fatima_image)[0]
+known_image = face_recognition.load_image_file("add your image path here")
+known_encoding = face_recognition.face_encodings(known_image)[0]
 
 #pass the face encodings and names to the array
-known_face_encodings = [ fatima_encoding ]
-known_face_names = [ "Fatima" ]
+known_face_encodings = [ known_encoding ]
+known_face_names = [ "your name" ]
 
 while True:
     ret, frame = video_capture.read() #take the first video frame
@@ -48,7 +48,7 @@ while True:
         cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1) #write the name
         
     
-        if name != "Fatima":
+        if name != "your name":
             capture()
             ring_phone()
             send_email()
